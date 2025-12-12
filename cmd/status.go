@@ -14,10 +14,10 @@ import (
 
 // Exit codes
 const (
-	ExitSuccess    = 0
-	ExitFailed     = 1
-	ExitRunning    = 2
-	ExitNotFound   = 3
+	ExitSuccess  = 0
+	ExitFailed   = 1
+	ExitRunning  = 2
+	ExitNotFound = 3
 )
 
 var statusCmd = &cobra.Command{
