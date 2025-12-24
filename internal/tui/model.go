@@ -265,7 +265,7 @@ type Model struct {
 	selectedHostIdx int
 
 	// UI State
-	detailTab    DetailTab      // Which tab is active in detail panel (Details or Logs)
+	detailTab    DetailTab // Which tab is active in detail panel (Details or Logs)
 	logContent   string
 	logStale     bool             // true if showing cached content due to connection error
 	logCache     map[int64]string // cache of last successful log content per job
@@ -2229,7 +2229,7 @@ func (m Model) fetchHostJobsGPU(hostName string) tea.Cmd {
 
 // getTargetJob returns the job to act on - either the selected job or the highlighted job
 func (m Model) getTargetJob() *db.Job {
-	if m.selectedJob != nil {
+	if m.detailTab == DetailTabLogs && m.selectedJob != nil {
 		return m.selectedJob
 	}
 	if len(m.jobs) > 0 && m.selectedIndex < len(m.jobs) {
